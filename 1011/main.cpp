@@ -12,20 +12,20 @@ int main(void)
     int i,j;
     float max = -1.0;
     float result = 1.0;
-    for(i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
         max = -1.0;
-        for(j = 0; j < 3; j++) {
+        for (j = 0; j < 3; j++) {
             float temp;
             cin >> temp;
             game_odd_array[i][j] = temp;
-            if(temp >= max) {
+            if (temp >= max) {
                 max = temp;
                 max_ratio[i] = j;
             }
         }
     }
     
-    for(i = 0; i < 3; i++) {
+    for (i = 0; i < 3; i++) {
         cout << game_result_array[max_ratio[i]] << ' ';
         result *= game_odd_array[i][max_ratio[i]];
     }

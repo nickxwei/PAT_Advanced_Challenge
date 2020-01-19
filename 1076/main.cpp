@@ -26,7 +26,7 @@ int bfs(int i)
     v.layer = 1;
     q.push(v);
 
-    while(!q.empty()) {
+    while (!q.empty()) {
         vertex_type current_v = q.front();
         int current_index = current_v.index;
         int current_layer = current_v.layer;

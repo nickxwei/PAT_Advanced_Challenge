@@ -4,7 +4,8 @@
 
 using namespace std;
 
-int main(void) {
+int main(void) 
+{
     int a, b;
     ostringstream os;
     cin >> a >> b;

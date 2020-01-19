@@ -12,7 +12,8 @@ typedef struct _sign_info_t {
 
 vector<sign_info_t> all_sign_info;
 
-int main(void) {
+int main(void) 
+{
     int n;
     int earlist_index = 0, lastest_index = 0;
     int earlist_time = 0xFFFFFF, lastest_time = 0;

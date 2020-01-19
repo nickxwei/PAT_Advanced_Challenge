@@ -17,21 +17,21 @@ void printf_vector(vector<int> v)
 	last_key = v[0];
 	cout << v[0];
 
-	for(int i = 1; i < v.size(); i++) { 
-		if(type == 0) {
-			if(last_key > v[i]) {
+	for (int i = 1; i < v.size(); i++) { 
+		if (type == 0) {
+			if (last_key > v[i]) {
 				type = 1;
-			} else if(last_key == v[i]) {
+			} else if (last_key == v[i]) {
 				type = 0;
 			} else {
 				type = 2;
 			}
-		} else if(type == 1) {
-			if(last_key < v[i]) {
+		} else if (type == 1) {
+			if (last_key < v[i]) {
 				type = 3;
 			}
-		} else if(type == 2) {
-			if(last_key > v[i]) {
+		} else if (type == 2) {
+			if (last_key > v[i]) {
 				type = 3;
 			}
 		}
@@ -45,12 +45,12 @@ void printf_vector(vector<int> v)
 void DFS(vector<int>)
 {
 	int i = 0;
-	while(i <= heap.size() - 1) {
+	while (i <= heap.size() - 1) {
 		int tmp = i;
 		traverse_index_stack.push(i);
 		traverse_key_container.push_back(heap[i]);
 		i = i * 2 + 2;
-		if(i - 1 == heap.size() - 1) {
+		if (i - 1 == heap.size() - 1) {
 			i = i - 1;
 			is_traversed[tmp] = 1;
 		}
@@ -58,21 +58,21 @@ void DFS(vector<int>)
 
 	printf_vector(traverse_key_container);
 
-	while(!traverse_index_stack.empty()) {
+	while (!traverse_index_stack.empty()) {
 		int current = traverse_index_stack.top();
-		if(is_traversed[current] == 1) {
+		if (is_traversed[current] == 1) {
 			traverse_index_stack.pop();
 			traverse_key_container.pop_back();
 		} else {
 			is_traversed[current] = 1;
 			current = current * 2 + 1;
-			if(current <= heap.size() - 1) {
-				while(current <= heap.size() - 1) {
+			if (current <= heap.size() - 1) {
+				while (current <= heap.size() - 1) {
 					int tmp = current;
 					traverse_index_stack.push(current);
 					traverse_key_container.push_back(heap[current]);
 					current = current * 2 + 2;
-					if(current - 1 == heap.size() - 1) {
+					if (current - 1 == heap.size() - 1) {
 						current = current - 1;
 						is_traversed[tmp] = 1;
 					}
@@ -90,7 +90,7 @@ int len;
 int main(void)
 {
     cin >> len;
-	for(int i = 0; i < len; i++) {
+	for (int i = 0; i < len; i++) {
 		int tmp;
 		cin >> tmp;
 		is_traversed.push_back(0);
@@ -99,7 +99,7 @@ int main(void)
 
 	DFS(heap);
 	
-	switch(type) {
+	switch (type) {
 		case 1:
 			cout << "Max Heap" << endl;
 			break;

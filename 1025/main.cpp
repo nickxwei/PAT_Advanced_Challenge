@@ -6,7 +6,7 @@
 
 using namespace std;
 
-typedef struct _List_Info{
+typedef struct _List_Info {
 		string registerId;
 		int score;
 		int final_rank;
@@ -15,10 +15,10 @@ typedef struct _List_Info{
 	} List_Info;
 
 bool cmp(List_Info a, List_Info b) {
-	if(a.score != b.score) {
+	if (a.score != b.score) {
 		return a.score > b.score;
 	} else {
-		if( strcmp(a.registerId.c_str(), b.registerId.c_str()) > 0) {
+		if ( strcmp(a.registerId.c_str(), b.registerId.c_str()) > 0) {
 			return false;
 		} else {
 			return true;
@@ -26,21 +26,20 @@ bool cmp(List_Info a, List_Info b) {
 	}
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
 
 	int n;
+	vector<List_Info> total_data;
 
 	cin >> n;
 
-	vector<List_Info> total_data;
-
-	for(int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++) {
 		int k;
+		vector<List_Info> temp_data;
 		cin >> k;
 
-		vector<List_Info> temp_data;
-
-		for(int j = 0; j < k; j++) {
+		for (int j = 0; j < k; j++) {
 			string temp_id;
 			int temp_score;
 			List_Info temp_info;
@@ -57,8 +56,8 @@ int main(int argc, char** argv) {
 		sort(temp_data.begin(), temp_data.end(), cmp);
 		temp_data[0].local_rank = 1;
 		total_data.push_back(temp_data[0]);
-		for(int j = 1; j < temp_data.size(); j++) {
-			if(temp_data[j].score == temp_data[j - 1].score) {
+		for (int j = 1; j < temp_data.size(); j++) {
+			if (temp_data[j].score == temp_data[j - 1].score) {
 				temp_data[j].local_rank = temp_data[j - 1].local_rank;
 			} else {
 				temp_data[j].local_rank = j + 1;
@@ -75,8 +74,8 @@ int main(int argc, char** argv) {
 	
 	cout << total_data[0].registerId << ' ' << total_data[0].final_rank << ' ' << total_data[0].location_number << ' ' << total_data[0].local_rank << endl;
 
-	for(int i = 1; i < total_data.size(); i++) {
-		if(total_data[i].score == total_data[i - 1].score) {
+	for (int i = 1; i < total_data.size(); i++) {
+		if (total_data[i].score == total_data[i - 1].score) {
 			total_data[i].final_rank = total_data[i - 1].final_rank;
 		} else {
 			total_data[i].final_rank = i + 1;

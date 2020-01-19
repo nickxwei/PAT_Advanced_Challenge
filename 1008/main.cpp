@@ -9,11 +9,11 @@ int main(void)
 
     cin >> n;
     
-    while(n--) {
+    while (n--) {
         cin >> to;
-        if(to > from) {
+        if (to > from) {
             sum += 6 * (to - from);
-        } else if(to < from) {
+        } else if (to < from) {
             sum += 4 * (from - to);
         }
         from = to;

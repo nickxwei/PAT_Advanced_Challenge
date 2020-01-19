@@ -19,12 +19,12 @@ int main(void)
 {
     cin >> n;
 
-    for(unsigned int i = 0; i < n; i++) {
+    for (unsigned int i = 0; i < n; i++) {
         flag = 0;
         cin >> account;
         cin >> password;
         
-        for(unsigned int j = 0; j < password.length(); j++) {
+        for (unsigned int j = 0; j < password.length(); j++) {
             switch (password[j]) {
                 case '1':
                     password[j] = '@';
@@ -47,7 +47,7 @@ int main(void)
             }
         }
 
-        if(flag == 1) {
+        if (flag == 1) {
             info_e.account = account;
             info_e.password = password;
             info_v.push_back(info_e);
@@ -55,7 +55,7 @@ int main(void)
     }
 
     if (info_v.size() == 0) {
-        if(n == 1)
+        if (n == 1)
             cout << "There is " << n << " account and no account is modified" << endl;
         else 
             cout << "There are " << n << " accounts and no account is modified" << endl;

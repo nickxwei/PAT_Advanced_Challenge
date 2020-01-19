@@ -6,37 +6,38 @@
 
 using namespace std;
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
     vector<pair<int, float> > input1, input2;
     ostringstream os;
 
     int len;
     cin >> len;
-    for(int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++) {
         pair<int, float> temp;
         cin >> temp.first >> temp.second;
-        if(temp.second != 0)
+        if (temp.second != 0)
             input1.push_back(temp);
     }
 
     cin >> len;
-    for(int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++) {
         pair<int, float> temp;
         cin >> temp.first >> temp.second;
-        if(temp.second != 0)
+        if (temp.second != 0)
             input2.push_back(temp);
     }
 
     int i, j, num = 0;
     os << fixed << setprecision(1);
-    for(i = 0, j = 0; i < input1.size() && j <input2.size(); ) {
-        if(input1[i].first > input2[j].first) {
+    for (i = 0, j = 0; i < input1.size() && j <input2.size(); ) {
+        if (input1[i].first > input2[j].first) {
             os << ' ' << input1[i].first << ' ' << input1[i].second;
             i++;
             num++;
-        } else if(input1[i].first == input2[j].first) {
+        } else if (input1[i].first == input2[j].first) {
             float temp_sum = input1[i].second + input2[j].second;
-            if(temp_sum != 0) {
+            if (temp_sum != 0) {
                 os << ' ' << input1[i].first << ' ' << temp_sum;
                 num++;
             }
